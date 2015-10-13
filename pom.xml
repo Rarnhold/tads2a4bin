@@ -4,3 +4,10 @@
   <artifactId>cadastro</artifactId>
   <version>1.0</version>
 </project>
+
+
+
+<properties>
+	<maven.compiler.sourse>1.8</maven.compiler.sourse>
+	<maven.compiler.target>1.8</maven.compiler.target>
+</properties>
