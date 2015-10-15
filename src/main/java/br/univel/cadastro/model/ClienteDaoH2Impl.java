@@ -26,17 +26,22 @@ public class ClienteDaoH2Impl implements ClienteDao {
 	}
 
 	private void cnxAbrir() {
-		String url = "jdbc:h2:./tads4bin";
-		String user = "sa";
+		String url      = "jdbc:h2:./tads4bin";
+		String user     = "sa";
 		String password = "sa";
 
 		try {
 			con = DriverManager.getConnection(url, user, password);
 			System.out.println("Conexão estabelecida");
-		
+
 		} catch (SQLException e) {
-			System.out.println("Falha na Conexão Com o banco de dados: "+e.getMessage());
+			System.out.println("Falha na Conexão Com o banco de dados: "
+					+ e.getMessage());
 		}
+	}
+
+	private void cnxFechar() throws SQLException {
+		con.close();
 	}
 
 	public void inserir(Cliente c) {
