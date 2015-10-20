@@ -52,3 +52,21 @@ Após verificado que existe o arquivo voltamos para o TIBCO
 
 ----------------------
 
+#20 de outubro de 2015
+Copiado a classe SimpleReport do *(https://github.com/fdagostini/tads2a4bim/blob/master/jaspersample/src/main/java/br/univel/SimpleReport.java)
+
+Copiado as dependencias do projeto (https://github.com/fdagostini/tads2a4bim/blob/master/jaspersample/pom.xml)
+
+Acessado o aplicativo TIBCO > File > New > Jasper Report 
+Selecionar pagina em Branco > inserir nome simples > Finish
+Inserir > Text Field para os campos; 
+Inserir na palheta Outline Parameters > parametros que o programa possa enviar para o relatório;
+No projeto  do Relatório > Superior > Selecionar > Compile Report > Irá gerar o nome do relatório modo binario .jasper
+
+Verificar pasta do usuario (C:\\Users\\Arnhold\\JaspersoftWorkspace\\MyReports\\) > terá o arquivo que acabou de gerar;
+
+
+
+
+
+
