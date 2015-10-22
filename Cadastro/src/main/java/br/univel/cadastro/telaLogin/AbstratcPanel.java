@@ -1,18 +1,38 @@
 package br.univel.cadastro.telaLogin;
 
 import javax.swing.JPanel;
+
 import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
 import java.awt.Dimension;
+
 import javax.swing.JButton;
+
 import java.awt.GridBagConstraints;
 import java.awt.Color;
+
 import javax.swing.JLabel;
+
 import java.awt.Insets;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.io.Closeable;
 
 // Implementa o Abstract para conseguir utilizar a tela em outras telas
 public abstract class AbstratcPanel extends JPanel {
 
+	private JButton btnFechar;
+
+
+	//instancia o método abstrado desta forma quem for utilizar deverá implementar para a utilização.
+	protected abstract void configuraMiolo();
+	
+	//Verificação se o botão de fechar foi pressionado
+	public void setCloseAction(ActionListener act){
+		btnFechar.addActionListener(act);
+	}
+	
+	
 	/**
 	 * Create the panel.
 	 */
@@ -37,7 +57,12 @@ public abstract class AbstratcPanel extends JPanel {
 		gbc_lblOl.gridy = 0;
 		panel.add(lblOl, gbc_lblOl);
 		
-		JButton btnFechar = new JButton("Fechar");
+		btnFechar = new JButton("Fechar");
+		btnFechar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		GridBagConstraints gbc_btnFechar = new GridBagConstraints();
 		gbc_btnFechar.anchor = GridBagConstraints.EAST;
 		gbc_btnFechar.gridx = 1;
@@ -48,6 +73,8 @@ public abstract class AbstratcPanel extends JPanel {
 		panel_1.setBackground(Color.GRAY);
 		add(panel_1, BorderLayout.SOUTH);
 
+		//chama o método
+		configuraMiolo();
 	}
 
 }

@@ -40,28 +40,49 @@ public class TelaPrincipal extends JFrame {
 	public TelaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		
+
 		JMenu mnCadastros = new JMenu("Cadastros");
 		menuBar.add(mnCadastros);
-		
+
 		JMenuItem mntmClientes = new JMenuItem("Clientes");
 		mntmClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/*Transformar o JTabbedPane em uma variavel local  */
-				tabbedPane.addTab("Cadastro de Cliente", new JPanel());
+				/* Transformar o JTabbedPane em uma variavel local */
+				// tabbedPane.addTab("Cadastro de Cliente", new JPanel());
+
+				// teste com Abstrect Panel
+				AbrirTela();
+
 			}
+
 		});
 		mnCadastros.add(mntmClientes);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
-		
+
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		contentPane.add(tabbedPane, BorderLayout.CENTER);
+	}
+
+	private void AbrirTela() {
+		//declara a variavel
+		 final TelaCadastroCliente telaCadastroCliente = new TelaCadastroCliente();
+		
+		ActionListener act = new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				tabbedPane.remove(telaCadastroCliente);
+			}
+		};
+		
+		telaCadastroCliente.setCloseAction(act);
+		tabbedPane.addTab("Cadastro de Cliente", telaCadastroCliente);
+		
 	}
 
 }

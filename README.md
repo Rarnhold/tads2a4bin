@@ -65,6 +65,38 @@ No projeto  do Relatório > Superior > Selecionar > Compile Report > Irá gerar o 
 
 Verificar pasta do usuario (C:\\Users\\Arnhold\\JaspersoftWorkspace\\MyReports\\) > terá o arquivo que acabou de gerar;
 
+#22 de outubro de 2015
+
+Deve seguir uma determinada sequencia sendo ela a seguinte:
+
+1 - Definir o modelo padrão para as telas do sistema fazendo uma tela abstract, para isso deve se criar um JPanel e inserir o abstract entre o tipo da classe e o nome da class como exemplo: public abstract class AbstratcPanel
+
+1.1 - Deverá possuir um método Abstrato ex: protected abstract void configuraMiolo();
+1.2 - No final da Class deverá possuir a chamada do método;
+
+2 - Definir os modelos de telas criando um JPanel para cada Tipo de cadastro (PainelCadastroCliente)
+
+2.1 - Deverá alterar a variavel para o tipo protected
+
+3 - Definir um Novo Jpanel para a chamada da tela de Cadastro extendendo tela abstrata do passo 1
+
+3.1 - O seu método deverá chamar o método super();  
+3.2 - Após Extender da Tela Abastrata 1 deverá implementar o Método criado no passo 1.1
+
+* Implementar com o super.add(new PainelCadastroCliente(),BorderLayout.CENTER);
+*super.add ( new [Tela que contem os campos()], define a onde a tela ira abrir);
+
+----------------------
+AbstratcPanel         = Moldura
+PainelCadastroCliente = Miolo da Aplicação
+TelaCadastroCliente   = extende da AbstraticPanel 
+
+TelaPrincipal         = definido em cada botão a chamada do método para abertura e fechamento da tela
+					   						Nome da Aba 	  , deverá definir como variavel local o Jpanel
+* Abertura   da tela:  tabbedPane.addTab("Cadastro de Cliente", new TelaCadastroCliente() {});
+
+* Fechamento da tela: 
+
 
 
 
